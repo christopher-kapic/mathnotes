@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{hint}{Hint}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+
+\title{Math 354 Homework 6 Notes}
+\author{Christopher Kapic}
+\date{November 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{10.1 Chaos}
+
+\begin{definition}[dense]
+    Suppose $X$ is a set and $Y$ is a subset of $X$. We say that $Y$ is \textit{dense} in $X$ if, for any point $x \in X$, there is a point $y$ in the subset $Y$ arbitrarily close to $x$.
+\end{definition}
+
+\begin{definition}[transitivs]
+    A dynamical system is \textit{transitive} if for any pair of points $x$ and $y$ and any $\epsilon > 0$ there is a third point $z$ within $\epsilon$ of $x$ whose orbit comes within $\epsilon$ of $y$.
+\end{definition}
+
+\begin{definition}[sensitive]
+    A dynamical system $F$ \textit{depends sensitively on initial conditions} if there is a $\beta > 0$ such that, for any $x$ and any $\epsilon > 0$, there is a $y$ within $\epsilon$ of $x$ and a $k$ such that the distance between $F^k(x)$ and $F^k(y)$ is at least $\beta$.
+\end{definition}
+
+\begin{definition}[chaotic]
+    A dynamical system $F$ is \textit{chaotic} if:
+    \begin{enumerate}[(i)]
+        \item Periodic points for $F$ are dense.
+        \item $F$ is transitive.
+        \item $F$ depends sensitively on initial conditions.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    The shift map $\sigma :\Sigma \rightarrow \Sigma$ is a chaotic dynamical system.
+\end{theorem}
+
+\begin{theorem}[The Density Proposition]
+    Suppose $F:X\rightarrow Y$ is a continuous map that is onto and suppose also that $D \subset X$ is a dense subset. Then $F(D)$ is dense in $Y$.\\\\
+    Proof on page 126.
+\end{theorem}
+
+\begin{theorem}
+    Suppose $c < -(5+2\sqrt{5})/4$. Then the quadratic map $Q_c(x) =x^2+c$ is chaotic on the set $\Lambda$.\\\\
+    Proof on page 126.
+\end{theorem}
+
+\section*{10.2 Other Chaotic Systems}
+
+\begin{theorem}
+    The function $Q_{-2}(x)=x^2-2$ is chaotic on $[-2,2]$.
+\end{theorem}
+
+\begin{definition}[semiconjugacy]
+    Suppose $F:X\rightarrow X$ and $G:Y\rightarrow Y$ are two dynamical systems. A mapping $h:X\rightarrow Y$ is called a \textit{semiconjugacy} if $h$ is continuous, onto, at most $n$-to-one, and satisfies $h \circ F = G\circ h$.
+\end{definition}
+
+\begin{theorem}
+    The doubling map $D$ is chaotic on the unit circle.\\\\
+    Proof on page 131.
+\end{theorem}
+
+\section*{10.3 Manifestations of Chaos}
+
+\begin{definition}[superstable]
+    Suppose $x_0$ is a critical point for $F$, that is, $F'(x_0) = 0$. If $x_0$ is also a periodic point of $F$ with period $n$, then the orbit of $x_0$ is called \textit{superstable}. The reason for this terminology is taht $(F^n)'(x_0)=0$.
+\end{definition}
+
+
+\end{document}

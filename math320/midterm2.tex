@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+
+\title{Math 320 Exam 2 Notes}
+\author{Christopher Kapic}
+\date{October 2020}
+
+\begin{document}
+\maketitle
+
+\section*{Geometric Series}
+\begin{enumerate}
+    \item Ratio test: In a geometric series $\sum _{n=0}^\infty a_n$, we can find the common ratio $r = \frac{a_{n+1}}{a_n}$. If $r < 1$ then the series converges. If, however, $r \geq$ 1 then the series diverges.
+    \item Let $(a_n), (b_n)$ be sequences, and $\lim a_n = a, \lim b_n = b$. Then:
+        \begin{enumerate}[(i)]
+            \item $\lim _{n\rightarrow\infty} c a_n = ca$
+            \item $\lim _{n\rightarrow\infty} a_n + b_n = a+b$
+            \item $\lim _{n\rightarrow\infty} a_nb_n = ab$
+            \item $\lim _{n\rightarrow\infty} \frac{a_n}{b_n}=\frac{a}{b}$ (as long as $b, \lim b_n \neq 0$)
+        \end{enumerate}
+\end{enumerate}
+
+\section*{Squeeze theorem}
+If we are trying to find $\lim f(x)$ and we know $g(x)\leq f(x) \leq h(x)$ and $\lim g(x)=\lim h(x)$, then $\lim f(x)=\lim g(x)=\lim h(x).$
+
+
+\section*{Binomial Expansion}
+$(a+b)^n=\sum _{k=0}^n\frac{n!}{k!(n-k)!}a^{n-k}b^k$.
+
+\section*{Sequences}
+\begin{enumerate}
+    \item A sequence is a function whose domain is $\mathbb{N}$.
+    \item Convergence: A sequence $(a_n)$ converges to $a$ if for all $\epsilon > 0$ there exists $N \in \mathbb{N}$ such that for all $n > N, |a_n - a| < \epsilon$.
+    \item This one is kind of obvious, but when there is a limit of a sequence, it must be unique (there cannot be two limits of a sequence).
+    \item Divergence: A sequence that does not converge diverges.
+    \item Boundedness: A sequence $x_n$ is bounded if there exists an $M > 0$ such that $|x_n|\leq M$ for all $n \in \mathbb{N}$.
+    \item Every convergent sequence is bounded.
+    \item Algebraic limit theorem: see Geometric Series (b). Proof on page 50 of the book.
+\end{enumerate}
+
+\section*{Limits and Order}
+\begin{enumerate}
+    \item Order Limit theorem | assume $\lim a_n = a, \lim b_n = b$
+        \begin{enumerate}[(i)]
+            \item If $a_n \geq 0 \forall n \in \mathbb{N}, a \geq 0.$
+            \item If $a_n < b_n \forall n \in \mathbb{N}, a < b$.
+            \item (For $c$) If $c \leq b_n$ for all $n \in \mathbb{N}$, then $c \leq b$. Likewise, if $a_n \leq c$ for all $n \in \mathbb{N}$, then $a \leq c.$
+        \end{enumerate}
+        Proof on page 53.
+    \item The algebraic limit theorem ensures that $(b_n - a_n)$ converges to $b-a$.
+\end{enumerate}
+
+\section*{Monotone convergence}
+See page 56.
+
+\end{document}

@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\newtheorem{definition}{Definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{hint}{Hint}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+
+
+\title{Problem Set 6 Notes (3.2, 3.3, 3.4)}
+\author{Christopher Kapic}
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{3.2 Open and Closed Sets}
+\begin{definition}[$\epsilon$-neighborhood]
+    Given $a \in \mathbb{R}$ and $\epsilon > 0$, an $\epsilon$-neighborhood of $a$ is the set \[V_\epsilon (a) = \{x \in \mathbb{R} : |x-a| < \epsilon\}.\]
+    ($V_\epsilon (a))$ is the open interval $(a-\epsilon, a + \epsilon)$, centered at $a$ with radius $\epsilon$. 
+\end{definition}
+
+\begin{definition}[open]
+    A set $O \subseteq \mathbb{R}$ is open if for all points $a \in O$ there exists an $\epsilon$-neighborhood $V_\epsilon (a) \subseteq O.$
+\end{definition}
+
+\begin{thm}[3.2.3]
+    \begin{enumerate}[(i)]
+        \item The union of an arbitrary collection of open sets is open.
+        \item The intersection of a finite collection of open sets is open.
+    \end{enumerate}
+    Proof on page 89.
+\end{thm}
+
+\begin{definition}[limit point]
+    A point $x$ is a limit point of a set $A$ if every $\epsilon$-neighborhood $V_\epsilon (x)$ of $x$ intersects the set $A$ at some point other than $x$.
+\end{definition}
+
+\begin{thm}[3.2.5]
+    A point $x$ is a limit point of a set $A$ if and only if $x = \lim a_n$ for some sequence $(a_n)$ contained in $A$ satisfying $a_n \neq x$ for all $n \in \mathbb{N}$. \\ Proof on page 89.
+\end{thm}
+
+\begin{definition}[isolated point]
+    A point $a \in A$ is an isolated point of $A$ if it is not a limit point of $A$.
+\end{definition}
+
+\begin{hint}
+    An isolated point is always in its set, but a limit point may not be (like in an open interval).
+\end{hint}
+
+\begin{definition}[closed]
+    A set $F \subseteq \mathbb{R}$ is closed if it contains its limit points.
+\end{definition}
+
+\begin{thm}[3.2.8]
+    A set $F \subseteq \mathbb{R}$ is closed if and only if every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+\end{thm}
+
+\begin{thm}[3.2.10 (Density of $\mathbb{Q}$ in $\mathbb{R}$)]
+    For every $y \in \mathbb{R}$, there exists a sequence of rational numbers that converges to $y$. \\ Proof on page 91.
+\end{thm}
+
+\begin{definition}[closure]
+    Given a set $A \subseteq \mathbb{R}$, let $L$ be the set of all limit points of $A$. The closure of $A$ is defined to be $\bar{A} = A\cup L$.
+\end{definition}
+
+\begin{thm}[3.2.12]
+    For any $A \subseteq \mathbb{R}$, the closure $\bar{A}$ is a closed set and is the smalles closed set containing $A$. \\ Proof on page 92.
+\end{thm}
+
+\begin{definition}[complement]
+    For a set $A \subseteq \mathbb{R}$, the compement of $A$ is defined to be $A^c = \{x \in \mathbb{R} : x \notin A\}.$
+\end{definition}
+
+\begin{thm}[3.2.13]
+    A set $O$ is open if and only if $O^c$ is closed. Likewise, a set $F$ is closed if and only if $F^c$ is open. \\ Proof on page 92.
+\end{thm}
+
+\begin{thm}[3.2.14]
+    \begin{enumerate}[(i)]
+        \item The union of a finite collection of closed sets is closed.
+        \item The intersection of an arbitrary collection of closed sets is closed.
+    \end{enumerate}
+    Proof on page 93.
+\end{thm}
+
+\section*{3.3 Compact Sets}
+\begin{definition}[compact]
+    A set $K \subseteq \mathbb{R}$ is compact if every sequence in $K$ has a subsequence that converges to a limit that is also in $K$.
+\end{definition}
+
+\begin{definition}[bounded]
+    A set $A \subseteq \mathbb{R}$ is bounded if there exists $M > 0$ such that $|a| \leq M$ for all $a \in A$.
+\end{definition}
+
+\begin{thm}[3.3.4 (Characterization of Compactness in R)]
+    A set $K \subseteq \mathbb{R}$ is compact if and only if it is closed and bounded. \\ Proof on page 96.
+\end{thm}
+
+\begin{thm}[3.3.5 (Nested Compact Set Property)]
+    If \[K_1 \supseteq K_2 \supseteq K_3 \supseteq K_4 \supseteq ...\] is a nested sequence of nonempty compact sets, then the intersection $\bigcap _{n=1}^\infty K_n$ is not empty. \\ Proof on page 97.
+\end{thm}
+
+\begin{definition}[open cover]
+    Let $A \subseteq \mathbb{R}$. An open cover for $A$ is a (possibly infinite) collection of open sets $\{O_\lambda : \lambda \in \Lambda\}$ whose union contains the set $A$; that is, $A \subseteq \bigcup _{\lambda \in \Lambda} O_\lambda .$
+\end{definition}
+
+\begin{definition}[finite subcover]
+    Given an open cover for $A$, a finite subcover is a finite subcollection of open sets from the origional open cover whose union still manages to completely contain $A$.
+\end{definition}
+
+\begin{thm}[3.3.8 (Heine-Borel Theorem)]
+    Let $K$ be a subset of $\mathbb{R}$. All of the following statements are equivalent in the sense that any one of them implies the two others:
+    \begin{enumerate}[(i)]
+        \item $K$ is compact.
+        \item $K$ is closed and bounded.
+        \item Every open cover for $K$ has a finite subcover.
+    \end{enumerate}
+    Proof on page 98.
+\end{thm}
+
+\section*{3.4 Perfect Sets and Connected Sets}
+
+\begin{definition}[perfect]
+    A set $P \subseteq \mathbb{R}$ is perfect if it is closed and contains no isolated points.
+\end{definition}
+
+\begin{thm}[3.4.3]
+    A nonempty perfect set is uncountable. \\ Proof on page 102.
+\end{thm}
+
+\begin{definition}[separated]
+    Two nonempty sets $A,B \subseteq \mathbb{R}$ are separated if $\bar{A} \cap B$ and $A \cap \bar{B}$ are both empty.
+\end{definition}
+
+\begin{definition}[disconnected]
+    A set $E \subseteq \mathbb{R}$ is disconnected if it can be written as $E = A \cup B$, where $A$ and $B$ are nonempty separated sets.
+\end{definition}
+
+\begin{definition}[connected]
+    A set that is not disconnected is called a connected set.
+\end{definition}
+
+\begin{thm}[3.4.6]
+    A set $E \subseteq \mathbb{R}$ is connected if and only if, for all nonempty disjoint sets $A$ and $B$ satisfying $ E = A \cup B$, there always exists a convergent sequence $(x_n) \rightarrow x$ with $(x_n)$ contained in one of $A$ of $B$, and $x$ an element of the other. \\ Proof on page 104.
+\end{thm}
+
+\begin{thm}[3.4.7]
+    A set $E \subseteq \mathbb{R}$ is connected if and only if whenever $a < c < b$ with $a,b \in E,$ it followes that $c \in \mathbb{E}$ as well. \\ Proof on page 105.
+\end{thm}
+
+\end{document}

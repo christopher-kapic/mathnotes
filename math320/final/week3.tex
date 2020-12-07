@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+\usepackage{tikz-cd}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{hint}{Hint}
+
+\title{Math 320 Final Notes - Week 3}
+\author{Christopher Kapic}
+\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{2.2}
+\begin{definition}[sequence]
+    A \textit{sequence} is a function whose domain is $\mathbb{N}$.
+\end{definition}
+
+\begin{definition}[convergence of a sequence]
+    A sequence $(a_n)$ \textit{converges} to a real number $a$ if, for every positive number $\epsilon$, there exists an $N \in \mathbb{N}$ such that whenever $n \geq N$ it follows that $|a_n - a| < \epsilon$.
+\end{definition}
+
+\begin{definition}[$\epsilon$-neighborhood]
+    Given a real number $a \in \mathbb{R}$ and a positive number $\epsilon > 0$, the set \[V_\epsilon (a)=\{x \in \mathbb{R} : |x-a| < \epsilon\}\] is called the $\epsilon$-neighborhood of $a$.
+\end{definition}
+
+\begin{definition}[convergence of a sequence, topologically]
+    A sequence $(a_n)$ converges to $a$ if, given any $\epsilon$-neighborhood $V_\epsilon (a)$ of $a$, there exists a point in the sequence after which all of the terms are in $V_\epsilon (a)$. In other words, every $\epsilon$-neighborhood contains all but a finite number of the terms of $(a_n)$.
+\end{definition}
+
+\begin{theorem}[Uniqueness of Limits]
+    The limit of a sequence, when it exists, must be unique.
+\end{theorem}
+
+\begin{definition}[divergence]
+    A sequence that does not converge is said to \textit{diverge}.
+\end{definition}
+
+\section*{2.3}
+\begin{definition}[bounded]
+    A sequence $(x_n)$ is \textit{bounded} if there exists a number $M > 0$ such that $|x_n|\leq M$ for all $n \in \mathbb{N}$.
+\end{definition}
+
+\begin{theorem}[2.3.2]
+    Every convergent sequence is bounded.
+\end{theorem}
+
+\begin{theorem}[Algebraic Limit Theorem]
+    Let $\lim a_n = a$, and $\lim b_n = b$. Then,
+    \begin{enumerate}[(i)]
+        \item $\lim (ca_n) = ca$, for all $c \in \mathbb{R}$;
+        \item $\lim (a_n + b_n) = a + b$;
+        \item $\lim (a_nb_n)=ab$;
+        \item $\lim (a_n/b_n)=a/b$, provided $b \neq 0$.
+    \end{enumerate}
+    
+\end{theorem}
+
+
+\begin{theorem}[Order Limit Theorem]
+    Assume $\lim a_n = a$ and $\lim b_n = b$.
+    \begin{enumerate}[(i)]
+        \item If $a_n \geq 0$ for all $n \in \mathbb{N}$, then $a \geq 0$.
+        \item If $a_n \leq b_n$ for all $n \in \mathbb{N}$, then $a \leq b$.
+        \item If there exists $c \in \mathbb{R}$ for which $c \leq b_n$ for all $n \in \mathbb{N}$, then $c \leq b$. Similarly, if $a_n \leq c$ for all $n \in \mathbb{N}$, then $a \leq c$.
+    \end{enumerate}
+\end{theorem}
+
+\end{document}

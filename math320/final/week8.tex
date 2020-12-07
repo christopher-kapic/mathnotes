@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+\usepackage{tikz-cd}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{hint}{Hint}
+
+\title{Math 320 Final Notes - Week 8}
+\author{Christopher Kapic}
+\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{4.3 - Continuous Functions}
+\begin{definition}[continuity]
+    A function $f:A\rightarrow \mathbb{R}$ is \textit{continuous} at a point $c\in A$ if, for all $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $|x-c|<\delta$ (and $x \in A$) it follows that $|f(x)-f(c)| < \epsilon$.
+
+    If $f$ is continuous at every point in the domain $A$, then we say that $f$ is \textit{continuous} on $A$.
+\end{definition}
+
+\begin{theorem}[Characterizationf of Continuity - 4.3.2]
+    Let $f:A\rightarrow \mathbb{R}$, and let $c \in A$. The function $f$ is continuous at $c$ if and only if any one of the following three conditions is met:
+    \begin{enumerate}[(i)]
+        \item For all $\epsilon > 0$, there exists a $\delta > 0$ such that $|x - c| < \delta$ (and $x \in A$) implies $|f(x)-f(c)|<\epsilon$;
+        \item For all $V_\epsilon (f(c))$, there exists a $V_\delta (c)$ with the property that $x \in V_\delta (c)$ (and $x \in A$) implies $f(x) \in V_\epsilon (f(c))$;
+        \item For all $(x_n)\rightarrow c$ (with $x_n \in A$), it follows that $f(x_n) \rightarrow f(c)$.
+        
+        If $c$ is a limit point of $A$, then the above conditions are equivalent to\dots
+        \item $\lim _{x \rightarrow c}f(x) = f(c)$.
+        
+        Proof on page 123.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Corollary 4.3.3 - Criterion for Discontinuity]
+    Let $f:A\rightarrow \mathbb{R}$, and let $c \in A$ be a limit point of $A$. If there exists a sequence $(x_n)\subseteq A$ where $(x_n)\rightarrow c$ but such that $f(x_n)$ does not converge to $f(c)$, we may conclude that $f$ is not continuous at $c$.
+\end{theorem}
+
+\begin{theorem}[Algebraic Continuity Theorem - 4.3.4]
+    Assume $f:A\rightarrow \mathbb{R}$ and $g:A\rightarrow \mathbb{R}$ are continuous at a point $c \in A$. Then,
+    \begin{enumerate}
+        \item $kf(x)$ is continuous at $c$ for all $k \in \mathbb{R}$;
+        \item $f(x) + g(x)$ is continuous at $c$;
+        \item $f(x)g(x)$ is continuous at $c$; and
+        \item $f(x)/g(x)$ is continuous at $c$, provided the quotient is defined.
+        
+        Proof on page 124.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Composition of Continuous Functions - 4.3.9]
+    Given $f:A\rightarrow \mathbb{R}$ and $g:B\rightarrow \mathbb{R}$, assume that the range $f(A) = \{f(x):x\in A\}$ is contained in the domain $B$ so that the composition $g \circ f(x) = g(f(x))$ is defined on $A$.
+
+    If $f$ is continuous at $c \in A$, and if $g$ is continuous at $f(c) \in B$, then $g \circ f$ is continuous at $c$.
+\end{theorem}
+
+\section*{4.4 - Continuous Functions on Compact Sets}
+\begin{theorem}[Preservation of Compact Sets - 4.4.1]
+    Let $f:A\rightarrow \mathbb{R}$ be continuous on $A$. If $K \subseteq A$ is compact, then $f(K)$ is compact as well.
+
+    Proof on page 130.
+\end{theorem}
+
+\begin{theorem}[Exterme Value Theorem - 4.4.2]
+    If $f:K\rightarrow \mathbb{R}$ is continuous on a compact set $K \subseteq \mathbb{R}$, then $f$ attains a maximum and minimum value. In other words, there exist $x_0, x_1 \in K$ such that $f(x_0)\leq f(x) \leq f(x_1)$ for all $x \in K$.
+
+    Proof on page 130.
+\end{theorem}
+
+\begin{definition}[uniform continuity]
+    A function $f:A\rightarrow \mathbb{R}$ is \textit{uniformly continuous} on $A$ if for every $\epsilon > 0$ there exists a $\delta > 0$ such that for all $x,y \in A$, $|x-y|<\delta$ implies $|f(x)-f(y)|<\epsilon$.
+\end{definition}
+
+\begin{theorem}[Sequential Criterion for Absence of Uniform Continuity - 4.4.5]
+    A function $f:A\rightarrow \mathbb{R}$ fails to be uniformly continuous on $A$ if and only if there exists a particular $\epsilon _0 > 0$ and two sequences $(x_n)$ and $(y_n)$ in $A$ satisfying \[|x_n-y_n|\rightarrow 0 \text{ but } |f(x_n)-f(y_n)|\geq \epsilon_0 .\]
+
+    Proof on page 132.
+\end{theorem}
+
+\begin{theorem}[Uniform Continuity on Compact Sets - 4.4.7]
+    A function that is continuous on a compact set $K$ is uniformly continuous on $K$.
+
+    Proof on page 133.
+\end{theorem}
+
+
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+\usepackage{tikz-cd}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{hint}{Hint}
+
+\title{Math 320 Final Notes - Week 5}
+\author{Christopher Kapic}
+\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{2.8 - Double Summations and Products of Infinite Series}
+
+\begin{theorem}[2.8.1]
+    Let $\{a_{ij}:i,j \in \mathbb{N}\}$ be a doubly indexed array of real numbers. If \[\sum _{i=1}^\infty \sum _{j=1}^\infty |a_{ij}|\] converges, then both $\sum _{i=1}^\infty \sum _{j=1}^\infty a_{ij}$ and $\sum _{j=1}^\infty \sum _{i=1}^\infty a_{ij}$ converge to the same value. Moreover, \[\lim _{n\rightarrow \infty} s_{nn}=\sum _{i=1}^\infty \sum _{j=1}^\infty a_{ij}=\sum _{j=1}^\infty \sum _{i=1}^\infty a_{ij},\] where $s_{nn}=\sum _{i=1}^n \sum _{j=1}^n a_{ij}$.
+\end{theorem}
+
+
+
+
+\section*{3.2 - Open and Closed Sets}
+\begin{definition}[open]
+    A set $O \subseteq \mathbb{R}$ is \textit{open} if for all points $a \in O$ there exists an $\epsilon$-neighborhood $V_\epsilon (a) \subseteq O$.
+\end{definition}
+
+\begin{theorem}[3.2.3]
+    \begin{enumerate}[(i)]
+        \item The union of an arbitrary collection of open sets is open.
+        \item The intersection of a finite collection of open sets is open.
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}[limit point]
+    A point $x$ is a \textit{limit point} of a set $A$ if every $\epsilon$-neighborhood $V_\epsilon (x)$ of $x$ intersects the set $A$ at some point other than $x$.
+\end{definition}
+
+\begin{theorem}[3.2.5]
+    A point $x$ is a limit point of a set $A$ if and only if $x = \lim a_n$ for some sequence $(a_n)$ contained in $A$ satisfying $a_n \neq x$ for all $n \in \mathbb{N}$.
+\end{theorem}
+
+\begin{definition}[isolated point]
+    A point $a \in A$ is an \textit{isolated point} of $A$ if it is not a limit point of $A$.
+\end{definition}
+
+\begin{definition}[closed]
+    A set $F \subseteq \mathbb{R}$ is \textit{closed} if it contains its limit points.
+\end{definition}
+
+\begin{theorem}[3.2.8]
+    A set $F \subseteq \mathbb{R}$ is closed if and only if every Cauchy sequence contained in $F$ has a limit that is also an element of $F$.
+\end{theorem}
+
+\begin{theorem}[Density of $\mathbb{Q}$ in $\mathbb{R}$]
+    For every $y \in \mathbb{R}$, there exists a sequence of rational numbers that converges to $y$.
+\end{theorem}
+
+\begin{definition}[closure]
+    Given a set $A \subseteq \mathbb{R}$, let $L$ be the set of all limit points of $A$. The \textit{closure} of $A$ is defined to be $\overline{A}=A \cup L$.
+\end{definition}
+
+
+\begin{theorem}[3.2.12]
+    For any $A \subseteq \mathbb{R}$, the closure $\overline{A}$ is a closed set and is the smallest closed set containing $A$.
+\end{theorem}
+
+\begin{theorem}[3.2.13]
+    A set $O$ is open if and only if $O^c$ is closed. Likewise, a set $F$ is closed if and only if $F^c$ is open.
+\end{theorem}
+
+\begin{theorem}[3.2.14]
+    \begin{enumerate}[(i)]
+        \item The union of a finite collection of closed sets is closed.
+        \item The intersection of an arbitrary collection of closed sets is closed.
+    \end{enumerate}
+\end{theorem}
+
+
+\end{document}

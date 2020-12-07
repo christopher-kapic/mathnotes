@@ -1,0 +1,115 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+\usepackage{tikz-cd}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{hint}{Hint}
+
+\title{Math 320 Final Notes - Week 4}
+\author{Christopher Kapic}
+\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{2.4 The Monotone Convergence Theorem, Infinite Series}
+
+\begin{definition}[increasing, decreasing, monotone]
+    A sequence $(a_n)$ is \textit{increasing} if $a_n \leq a_{n+1}$ for all $n \in \mathbb{N}$ and \textit{decreasing} if $a_n \geq a_{n+1}$ for all $n \in \mathbb{N}$. A sequence is \textit{monotone} if it is either increasing or decreasing.
+\end{definition}
+
+\begin{theorem}[Monotone Convergence Theorem]
+    If a sequence is monotone and bounded, then it converges.
+\end{theorem}
+
+\begin{definition}[convergence of a series]
+    Let $(b_n)$ be a sequence. An \textit{infinite series} is a formal expression of the form \[\sum _{n = 1}^\infty b_n = b_1 + b_2 + b_3 + b_4 + b_5 + \dots .\]
+    We define the corresponding \textit{sequence of partial sums} $(s_m)$ by \[s_m = b_1 + b_2 + b_3 + \dots + b_m,\] and say that the series $\sum _{n=1}^\infty b_n$ \textit{converges} to $B$ if the sequence $(s_m)$ converges to $B$. In this case, we write $\sum _{n=1}^\infty b_n = B$.
+\end{definition}
+
+\begin{theorem}[Cauchy Condensation Test]
+    Suppose $(b_n)$ is decreasing and satisfies $b_n \geq 0$ for all $n \in \mathbb{N}$. Then, the series $\sum _{n=1}^\infty b_n$ converges if and only if the series \[\sum _{n=0}^\infty 2^nb_{2^n}=b_1+2b_2+4b_4+8b_8+16b_{16}+\dots \] converges.
+\end{theorem}
+
+\begin{theorem}[Corrollary 2.4.7]
+    The series $\sum _{n=1}^\infty 1/n^p$ converges if and only if $p > 1$.
+\end{theorem}
+
+\section*{2.5 - Subsequences and the Bolzano-Weierstrass Theorem}
+
+\begin{definition}[subsequence]
+    Let $(a_n)$ be a sequence of real numbers, and let $n_1 < n_2 < n_3 < n_4 < n_5 < \dots$ be an increasing sequence of natural numbers. Then the sequence \[(a_{n_1},a_{n_2},a_{n_3},a_{n_4},a_{n_5},\dots )\] is called a \textit{subsequence} of $(a_n)$ and is denoted by $(a_{n_k})$, where $k \in \mathbb{N}$ indexes the subsequence.
+\end{definition}
+
+\begin{theorem}[2.5.2]
+    Subsequences of a convergent sequence converge to the same limit as the original sequence.
+\end{theorem}
+
+\begin{theorem}[Bolzano-Weierstrass Theorem]
+    Every bounded sequences contains a convergent subsequence.
+\end{theorem}
+
+
+\section*{2.7 - Properties of Infinite Series}
+\begin{theorem}[Algebraic Limit Theorem for Series]
+    If $\sum _{k = 1}^\infty a_k = A$ and $\sum _{k =1}^\infty b_k = B$, then
+    \begin{enumerate}[(i)]
+        \item $\sum _{k=1}^\infty ca_k = cA$ for all $c \in \mathbb{R}$ and 
+        \item $\sum _{k = 1}^\infty (a_k+b_k) = A+B$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Cauchy Criterion for Series]
+    % I'm going to have to revisit this one.
+    The series $\sum _{k = 1}^\infty a_k$ converges if and only if, given $\epsilon > 0$, there exists an $N \in \mathbb{N}$ such that whenever $n > m \geq N$ it follows that \[|
+    a_{m+1}+a_{m+2}+\dots + a_n| < \epsilon .\]
+\end{theorem}
+
+\begin{theorem}[2.7.3]
+    If the series $\sum _{k=1}^\infty a_k$ converges, then $(a_k)\rightarrow 0$.
+\end{theorem}
+
+\begin{theorem}[Comparison Test]
+    % Have to look back at this one too. Page 72.
+    Assume $(a_k)$ and $(b_k)$ are sequences satisfying $0 \leq a_k \leq b_k$ for all $k \in \mathbb{N}$.
+    \begin{enumerate}[(i)]
+        \item If $\sum _{k=1}^\infty b_k$ converges, then $\sum _{k=1}^\infty a_k$ converges.
+        \item If $\sum _{k=1}^\infty a_k$ diverges, then $\sum _{k=1}^\infty b_k$ diverges.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Absolute Convergence Test]
+    If the series $\sum _{n=1}^\infty |a_n|$ converges, then $\sum _{n=1}^\infty a_n$ converges as well.
+\end{theorem}
+
+\begin{theorem}[Alternating Series Test]
+    Let $(a_n)$ be a sequence satisfying,
+    \begin{enumerate}[(i)]
+        \item $a_1 \geq a_2 \geq a_3 \geq \dots \geq a_n \geq a_{n+1} \geq \dots$ and
+        \item $(a_n)\rightarrow 0$.
+    \end{enumerate}
+    Then, the alternating series $\sum _{n = 1}^\infty (-1)^{n+1}a_n$ converges.
+\end{theorem}
+
+\begin{definition}[absolute, conditional convergence]
+    If $\sum _{n = 1}^\infty |a_n|$ converges, then we say that the original series $\sum _{n=1}^\infty a_n$ converges absolutely. If, on the other hand, the series $\sum _{n=1}^\infty a_n$ converges but the series of absolute values $\sum _{n=1}^\infty |a_n|$ does not converge, then we say that the original series $\sum _{n=1}^\infty a_n$ converges conditionally.
+\end{definition}
+
+\begin{definition}[rearrangement]
+    Let $\sum _{k=1}^\infty a_k$ be a series. A series $\sum _{k=1}^\infty b_k$ is called a \textit{rearrangement} of $\sum _{k=1}^\infty a_k$ if there exists a one-to-one, onto function $f:\mathbb{N} \rightarrow \mathbb{N}$ such that $b_{f(k)}=a_k$ for all $k \in \mathbb{N}$.
+\end{definition}
+
+\begin{theorem}[2.7.10]
+    If a series converges absolutely, then any rearrangement of this series converges to the same limit.
+\end{theorem}
+
+
+\end{document}

@@ -1,0 +1,153 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+\usepackage{tikz-cd}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{hint}{Hint}
+
+\title{Math 320 Final Notes - Week 10}
+\author{Christopher Kapic}
+\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{5.3}
+
+\begin{definition}[differentiability]
+    Let $g : A\rightarrow \mathbb{R}$ be a function defined on an interval $A$. Given $c \in A$, the \textit{derivative} of $g$ at $c$ is defined by \[g'(c)=\lim _{x \rightarrow c} \frac{g(x)-g(c)}{x-c},\] provided this limit exists. In this case we say \textit{g is differentiable at} $c$. If $g'$ exists for all points $c \in A$, we say that $g$ is \textit{differentiable} on $A$.
+\end{definition}
+
+\begin{theorem}[5.2.3]
+    If $g:A\rightarrow\mathbb{R}$ is differentiable at a point $c \in A$, then $g$ is continuous at $c$ as well.
+
+    Proof on page 149.
+\end{theorem}
+
+\begin{theorem}[Algebraic Differentiability Theorem - 5.2.4]
+    Let $f$ and $g$ be functions defined on an interval $A$, and assume both are differentiable at some point $c \in A$. Then,
+    \begin{enumerate}[(i)]
+        \item $(f+g)'(c)=f'(c)+g'(c)$,
+        \item $(kf)'(c)=kf'(c)$, for all $k \in \mathbb{R}$,
+        \item $(fg)'(c)=f'(c)g(c)+f(c)g'(c)$, and
+        \item $(f/g)'(c)=\frac{g(c)f'(c)-f(c)g'(c)}{[g(c)]^2}$, provided that $g(c)\neq 0$.
+    \end{enumerate}
+
+    Proof on page 149.
+\end{theorem}
+
+\begin{theorem}[Chain Rule - 5.2.5]
+    Let $f:A\rightarrow \mathbb{R}$ and $g:B\rightarrow \mathbb{R}$ satisfy $f(A) \subseteq B$ so that the composition $g \circ f$ is defined. If $f$ is differentiable at $c \in A$ and if $g$ is differentiable at $f(c)\in B$, then $g \circ f$ is differentiable at $c$ with $(g \circ f)'(c)=g'(f(c))\cdot f'(c)$.
+
+    Proof on page 150.
+\end{theorem}
+
+\begin{theorem}[Interior Extremum Theorem - 5.2.6]
+    Let $f$ be differentiable on an open interval $(a,b)$. If $f$ attains a maximum value at some point $c \in (a,b)$ (i.e., $f(c) \geq f(x)$ for all $x \in (a,b)$), then $f'(c) = 0$. The same is true if $f(c)$ is a minimum value.
+
+    Proof on page 151.
+\end{theorem}
+
+\begin{theorem}[Darboux's Theorem - 5.2.7]
+    If $f$ is differentiable on an interval $[a,b]$, and if $\alpha$ satisfies $f'(a) < \alpha < f'(b)$ (or $f'(a) > \alpha > f'(b)$), then there exists a point $c \in (a,b)$ where $f'(c) = \alpha$.
+
+    Proof on page 152.
+\end{theorem}
+
+\section*{7.2 - The Definition of the Riemann Integral}
+\begin{definition}[partition, lower sum, upper sum]
+    A \textit{partition} $P$ of $[a,b]$ is a finite set of points from $[a,b]$ that includes both $a$ and $b$. The notational convention is to always list the points of a partition $P = \{x_0,x_1,x_2,\dots , x_n\}$ in increasing order; thus, \[a = x_0 < x_1 < x_2 < \dots < x_n = b.\] For each subinterval $[x_{k-1}, x_k]$ of $P$, let \[m_k = \inf \{f(x) : x \in [x_{k-1}, x_k]\} \text{ and } M_k = \sup \{f(x):x \in [x_{k-1}, x_k]\}.\]
+
+    The \textit{lower sum} of $f$ with respect to $P$ is given by \[L(f,P) = \sum _{k = 1}^n m_k(x_k - x_{k-1}).\] Likewise, we define the \textit{upper sum} of $f$ with respect to $P$ by \[U(f,P)=\sum _{k=1}^n M_k(x_k - x_{k-1}).\]
+    For a particular partion $P$, it is clear that $U(f,P) \geq L(f,P)$. The fact that this same inequality holds if the upper and lower sums are computed with respect to different partitions is the content of the next two lemmas.
+\end{definition}
+
+\begin{definition}[refinement - 7.2.2]
+    A partition $Q$ is a \textit{refinement} of a partition $P$ if $Q$ contains all of the points of $P$; that is, if $P \subseteq Q$.
+\end{definition}
+
+\begin{lemma}[7.2.3]
+    If $P \subseteq Q$, then $L(f,P) \leq L(f,Q)$ and $U(f,P)\geq U(f,Q)$.
+
+    Proof on page 218.
+\end{lemma}
+
+\begin{lemma}[7.2.4]
+    If $P_1$ and $P_2$ are any two partitions of $[a,b]$, then $L(f,P_1) \leq U(f, P_2)$.
+
+    Proof on page 219.
+\end{lemma}
+
+\begin{definition}[upper integral, lower integral]
+    Let $\mathcal{P}$ be the collection of all possible partitions of the interval $[a,b]$: The \textit{upper integral} of $f$ is defined to be \[U(f)=\inf \{U(f,P):P \in \mathcal{P}\}.\]
+    In a similar way, define the \textit{lower integral} of $f$ by \[L(f) = \sup \{L(f,P):P \in \mathcal{P}\}.\]
+\end{definition}
+
+\begin{lemma}[7.2.6]
+    For any bounded function $f$ on $[a,b]$, it is always the case that $U(f) \geq L(f)$.
+\end{lemma}
+
+\begin{definition}[Riemann Integrability]
+    A bounded function $f$ defined on the interval $[a,b]$ is \textit{Riemann-integrable} if $U(f)=L(f)$. In this case, we define $\int _a^b f$ or $\int _a^b f(x)dx$ to be this common value; namely, \[\sum _a^b f = U(f) = L(f).\]
+\end{definition}
+
+\begin{theorem}[Integrability Criterion - 7.2.8]
+    % Need to look at this one a lot more.
+    A bounded function $f$ is integrable on $[a,b]$ if and only if, for every $\epsilon > 0$, there exists a partition $P_\epsilon$ of $[a,b]$ such that \[U(f,P_\epsilon) - L(f, P_\epsilon) < \epsilon .\]
+
+    Proof on page 221.
+\end{theorem}
+
+\begin{theorem}[7.2.9]
+    If $f$ is continuous on $[a,b]$, then it is integrable.
+
+    Proof on page 222.
+\end{theorem}
+
+\section*{7.3 - Integrating Functions with Discontinuities}
+\begin{theorem}[7.3.2]
+    If $f:[a,b] \rightarrow \mathbb{R}$ is bounded, and $f$ is integrable on $[c,b]$ for all $c \in (a,b)$, then $f$ is integrable on $[a,b]$. An analgous result holds at the other endpoint.
+
+    Proof on page 224.
+\end{theorem}
+
+\section*{7.4 - Properties of the Integral}
+\begin{theorem}[7.4.1]
+    Assume $f:[a,b]\rightarrow \mathbb{R}$ is bounded, and let $c \in (a,b)$. Then, $f$ is integrable on $[a,b]$ if and only if $f$ is integrable on $[a,c]$ and $[c,b]$. In this case, we have \[\int _a^b f = \int _a^c f + \int _c^b f .\]
+
+    Proof on page 228.
+\end{theorem}
+
+\begin{theorem}[7.4.2]
+    Assume $f$ and $g$ are integrable functions on the interval $[a,b]$.
+    \begin{enumerate}[(i)]
+        \item The function $f+g$ is integrable on $[a,b]$ with $\int _a^b (f+g) = \int _a^b f + \int _a^b g$.
+        \item For $k \in \mathbb{R}$, the function $kf$ is integrable with $\int _a^b kf = k \int _a^b f$.
+        \item If $m \leq f(x) \leq M$ on $[a,b]$, then $m(b-a) \leq \int _a^b f \leq M(b-a)$.
+        \item If $f(x) \leq g(x)$ on $[a,b]$, then $\int _a^b f \leq \int _a^b g$.
+        \item The function $|f|$ is integrable and $|\int _a^b f | \leq \int _a^b |f|$.
+    \end{enumerate}
+
+    Proof on page 230.
+\end{theorem}
+
+\begin{definition}[7.4.3]
+    If $f$ is integrable on the interval $[a,b]$, define \[\int _b^a f = - \int _a^b f.\]
+    Also, for $c \in [a,b]$ define \[\int _c^c f = 0.\]
+\end{definition}
+
+\begin{theorem}[Integrable Limit Theorem - 7.4.4]
+    Assume that $f_n \rightarrow f$ uniformly on $[a,b]$ and that each $f_n$ is integrable. Then, $f$ is integrable and \[\lim _{n \rightarrow \infty} \int _a^b f_n = \int _a^b f.\]
+
+    Proof on page 232.
+\end{theorem}
+
+\end{document}

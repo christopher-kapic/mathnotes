@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+\usepackage{tikz-cd}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{hint}{Hint}
+
+\title{Math 320 Final Notes - Week 2}
+\author{Christopher Kapic}
+\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{1.5 - Cardinality}
+\begin{definition}[one-to-one, onto]
+    A function $f:A\rightarrow B$ is \textit{one-to-one} (1-1) if $a_1 \neq a_2$ in $A$ implies that $f(a_1)\neq f(a_2)$ in $B$. The function $f$ is \textit{onto} if, given any $b \in B$, it is possible to find an element $a \in A$ for which $f(a)=b$.
+\end{definition}
+
+\begin{definition}[bijectivity]
+    The set $A$ has the \textit{same cardinality} as $B$ if there exists $f:A\rightarrow B$ that is 1-1 and onto. In this case, we write $A \sim B$.
+\end{definition}
+
+\begin{definition}[countable]
+    A set $A$ is \textit{countable} if $\mathbb{N} \sim A$. An infinite set that is not countable is called an \textit{uncountable} set.
+\end{definition}
+
+\begin{theorem}[1.5.6]
+    \begin{enumerate}[(i)]
+        \item The set $\mathbb{Q}$ is countable.
+        \item The set $\mathbb{R}$ is uncountable.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[1.5.7]
+    If $A \subseteq B$ and $B$ is countable, then $A$ is either countable or finite.
+\end{theorem}
+
+\begin{theorem}[1.5.8]
+    \begin{enumerate}[(i)]
+        \item If $A_1, A_2, \dots A_m$ are each countable sets, then the union $A_1 \cup A_2 \cup \dots \cup A_m$ is countable.
+        \item If $A_n$ is a countable set for each $n \in \mathbb{N}$, then $\bigcup _{n = 1}^\infty A_n$ is countable.
+    \end{enumerate}
+\end{theorem}
+
+
+\end{document}

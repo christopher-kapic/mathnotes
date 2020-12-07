@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\setlist*[enumerate]{label=(\alph*)}
+\usepackage{tikz-cd}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{hint}{Hint}
+
+\title{Math 320 Final Notes - Week 9}
+\author{Christopher Kapic}
+\date{December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section*{4.5 - The Intermediate Value Theorem}
+\begin{theorem}[Preservation of Connected Sets - 4.5.2]
+    Let $f:G\rightarrow \mathbb{R}$ be continuous. If $E \subseteq G$ is connected, then $f(E)$ is connected as well.
+
+    Proof on page 137.
+\end{theorem}
+
+\begin{definition}[intermediate value property]
+    A function $f$ has the \textit{intermediate value property} on an interval $[a,b]$ if for all $x < y$ in $[a,b]$ and all $L$ between $f(x)$ and $f(y)$, it is always possible to find a point $c \in (x,y)$ where $f(c) = L$.
+
+    Another way to summarize the Intermediate Value Theorem is to say that every continuous function on $[a,b]$ has the intermediate value property.
+\end{definition}
+
+\section*{5.2 - Derivatives and the Intermediate Value Property}
+\begin{definition}[differentiability]
+    Let $g : A\rightarrow \mathbb{R}$ be a function defined on an interval $A$. Given $c \in A$, the \textit{derivative} of $g$ at $c$ is defined by \[g'(c)=\lim _{x \rightarrow c} \frac{g(x)-g(c)}{x-c},\] provided this limit exists. In this case we say \textit{g is differentiable at} $c$. If $g'$ exists for all points $c \in A$, we say that $g$ is \textit{differentiable} on $A$.
+\end{definition}
+
+\begin{theorem}[5.2.3]
+    If $g:A\rightarrow\mathbb{R}$ is differentiable at a point $c \in A$, then $g$ is continuous at $c$ as well.
+
+    Proof on page 149.
+\end{theorem}
+
+\begin{theorem}[Algebraic Differentiability Theorem - 5.2.4]
+    Let $f$ and $g$ be functions defined on an interval $A$, and assume both are differentiable at some point $c \in A$. Then,
+    \begin{enumerate}[(i)]
+        \item $(f+g)'(c)=f'(c)+g'(c)$,
+        \item $(kf)'(c)=kf'(c)$, for all $k \in \mathbb{R}$,
+        \item $(fg)'(c)=f'(c)g(c)+f(c)g'(c)$, and
+        \item $(f/g)'(c)=\frac{g(c)f'(c)-f(c)g'(c)}{[g(c)]^2}$, provided that $g(c)\neq 0$.
+    \end{enumerate}
+
+    Proof on page 149.
+\end{theorem}
+
+\begin{theorem}[Chain Rule - 5.2.5]
+    Let $f:A\rightarrow \mathbb{R}$ and $g:B\rightarrow \mathbb{R}$ satisfy $f(A) \subseteq B$ so that the composition $g \circ f$ is defined. If $f$ is differentiable at $c \in A$ and if $g$ is differentiable at $f(c)\in B$, then $g \circ f$ is differentiable at $c$ with $(g \circ f)'(c)=g'(f(c))\cdot f'(c)$.
+
+    Proof on page 150.
+\end{theorem}
+
+\begin{theorem}[Interior Extremum Theorem - 5.2.6]
+    Let $f$ be differentiable on an open interval $(a,b)$. If $f$ attains a maximum value at some point $c \in (a,b)$ (i.e., $f(c) \geq f(x)$ for all $x \in (a,b)$), then $f'(c) = 0$. The same is true if $f(c)$ is a minimum value.
+
+    Proof on page 151.
+\end{theorem}
+
+\begin{theorem}[Darboux's Theorem - 5.2.7]
+    If $f$ is differentiable on an interval $[a,b]$, and if $\alpha$ satisfies $f'(a) < \alpha < f'(b)$ (or $f'(a) > \alpha > f'(b)$), then there exists a point $c \in (a,b)$ where $f'(c) = \alpha$.
+
+    Proof on page 152.
+\end{theorem}
+
+\section*{5.3 - The Mean Value Theorems}
+\begin{theorem}[Rolle's Theorem - 5.3.1]
+    Let $f:[a,b]\rightarrow \mathbb{R}$ be continuous on $[a,b]$ and differentiable on $(a,b)$. If $f(a) = f(b)$, then there exists a point $c \in (a,b)$ where $f'(c) = 0$.
+
+    Proof on page 156.
+\end{theorem}
+
+\begin{theorem}[Mean Value Theorem - 5.3.2]
+    If $f:[a,b]\rightarrow \mathbb{R}$ is continuous on $[a,b]$ and differentiable on $(a,b)$, then there exists a point $c \in (a,b)$ where \[f'(c) = \frac{f(b)-f(a)}{b-a}.\]
+    
+    Proof on page 156.
+\end{theorem}
+
+\begin{theorem}[Corollary 5.3.3]
+    If $g:A\rightarrow \mathbb{R}$ is differentiable on an interval $A$ and satisfies $g'(x) = 0$ for all $x \in A$, then $g(x) = k$ for some constant $k \in \mathbb{R}$.
+
+    Proof on page 157.
+\end{theorem}
+
+\begin{theorem}[Corollary 5.3.4]
+    If $f$ and $g$ are differentiable functions on an interval $A$ and satisfy $f'(x) = g'(x)$ for all $x \in A$, then $f(x) = g(x) + k$ for some constant $k \in \mathbb{R}$.
+
+    Proof on page 158.
+\end{theorem}
+
+\begin{theorem}[Generalized Mean Value Theorem - 5.3.5]
+    If $f$ and $g$ are continuous on the closed interval $[a,b]$ and differentiable on the open interval $(a,b)$, then there exists a point $c \in (a,b)$ where \[[f(b)-f(a)]g'(c)=[g(b)-g(a)]f'(c).\]
+
+    If $g'$ is never zero on $(a,b)$, then the conclusion can be stated as \[\frac{f'(c)}{g'(c)} = \frac{f(b)-f(a)}{g(b)-g(a)}.\]
+
+    Proof on page 158.
+\end{theorem}
+
+\begin{theorem}[L'Hospital's Rule: 0/0 case]
+    Let $f$ and $g$ be continuous on an interval conataining $a$, and assume $f$ and $g$ are differentiable on this interavl with the possible exception of the point $a$. If $f(a) = g(a) = 0$ and $g'(x) \neq 0$ for all $x \neq a$, then \[\lim _{x\rightarrow a}\frac{f'(x)}{g'(x)}=L \text{ implies } \lim _{x\rightarrow a}\frac{f(x)}{g(x)}=L.\]
+    Proof on page 159.
+\end{theorem}
+
+\begin{definition}[5.3.7]
+    Given $g:A\rightarrow \mathbb{R}$ and a limit point $c$ of $A$, we say that $\lim _{x \rightarrow c}g(x) = \infty$ if, for every $M > 0$, there exists a $\delta > 0$ such that whenever $0 < |x-c| < \delta$ it follows that $g(x) \geq M$.
+\end{definition}
+
+
+\begin{theorem}[L'Hospital's Rule: $\infty / \infty$ case]
+    Assume $f$ and $g$ are differentiable on $(a,b)$ and that $g'(x) \neq 0$ for all $x \in (a,b)$. If $\lim _{x \rightarrow a} g(x) = \infty $ (or $-\infty$), then \[\lim _{x\rightarrow a}\frac{f'(x)}{g'(x)}=L \text{ implies } \lim _{x\rightarrow a}\frac{f(x)}{g(x)}=L.\]
+
+    Proof on page 159.
+\end{theorem}
+
+\end{document}
